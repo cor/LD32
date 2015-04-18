@@ -12,16 +12,22 @@ public class PlayerController : MonoBehaviour {
 	bool facingRight = true;
 	bool onGround = false;
 
+	public GameObject bullet;
 	public Transform groundCheck;
+
 	float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
 	public float jumpForce = 100f;
+	public float delayBetweenShots = 3f;
+	public float shootForce = 500f;
 
+	private float timeSinceLastShot;
 
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody2D>();
+		timeSinceLastShot = Time.time;
 	}
 	
 	// Update is called once per frame
@@ -55,6 +61,10 @@ public class PlayerController : MonoBehaviour {
 			anim.SetBool("Ground", false);
 			rb.AddForce(new Vector2(0, jumpForce));
 		}
+
+		if ((Input.GetAxis("Fire1") == 1) && (Time.time > timeSinceLastShot + delayBetweenShots)){
+			Shoot();
+		}
 	}
 
 	void Flip() {
@@ -62,6 +72,22 @@ public class PlayerController : MonoBehaviour {
 		Vector3 scale = transform.localScale;
 		scale.x *= -1; // flip the transform
 		transform.localScale = scale;
+	}
+
+	void Shoot() {
+		if (facingRight) {
+			Vector3 clonePosition = new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z);
+			GameObject clone;
+			clone = Instantiate(bullet, clonePosition, bullet.transform.rotation) as GameObject;
+			clone.GetComponent<Rigidbody2D>().AddForce(Vector2.right * shootForce);
+		} else {
+			Vector3 clonePosition = new Vector3(transform.position.x - 0.5f, transform.position.y, transform.position.z);
+			GameObject clone;
+			clone = Instantiate(bullet, clonePosition, bullet.transform.rotation) as GameObject;
+			clone.GetComponent<Rigidbody2D>().AddForce(Vector2.right * - shootForce);
+		}
+
+		timeSinceLastShot = Time.time;
 	}
 
 }
