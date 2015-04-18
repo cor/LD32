@@ -30,31 +30,30 @@ public class DynamicParticle : MonoBehaviour {
 				case STATES.WATER:													
 					GetComponent<Rigidbody2D>().gravityScale=1.0f; // To simulate Water density
 				break;
-				case STATES.GAS:		
-					particleLifeTime=particleLifeTime/2.0f;	// Gas lives the time the other particles
-					GetComponent<Rigidbody2D>().gravityScale=0.0f;// To simulate Gas density
-					gameObject.layer=LayerMask.NameToLayer("Gas");// To have a different collision layer than the other particles (so gas doesnt rises up the lava but still collides with the wolrd)
-				break;					
 				case STATES.NONE:
 					Destroy(gameObject);
 				break;
 			}
 			if(newState!=STATES.NONE){
+
 				currentState=newState;
 				startTime=Time.time;//Reset the life of the particle on a state change
 				GetComponent<Rigidbody2D>().velocity=new Vector2();	// Reset the particle velocity	
 				currentImage.SetActive(false);
 				currentImage=particleImages[(int)currentState];
 				currentImage.SetActive(true);
+
 			}
 		}		
 	}
 
 	void Update () {
-		case STATES.WATER: //Water and lava got the same behaviour
-			MovementAnimation(); 
-			ScaleDown();
-		break;
+		switch (currentState) {
+			case STATES.WATER: //Water and lava got the same behaviour
+				MovementAnimation(); 
+				ScaleDown();
+			break;
+		}
 	}
 	// This scales the particle image acording to its velocity, so it looks like its deformable... but its not ;)
 	void MovementAnimation(){
