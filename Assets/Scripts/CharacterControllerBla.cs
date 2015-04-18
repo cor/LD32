@@ -61,4 +61,5 @@ public class CharacterControllerBla : MonoBehaviour {
 		scale.x *= -1; // flip the transform
 		transform.localScale = scale;
 	}
+
 }
