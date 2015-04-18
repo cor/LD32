@@ -32,7 +32,7 @@ public class ParticleGenerator : MonoBehaviour {
 
 		if( lastSpawnTime+SPAWN_INTERVAL<Time.time ){ // Is it time already for spawning a new particle?
 
-			GameObject newLiquidParticle=(GameObject)Instantiate(Resources.Load("LiquidPhysics/DynamicParticle")); //Spawn a particle
+			GameObject newLiquidParticle=(GameObject)Instantiate(Resources.Load("DynamicParticle")); //Spawn a particle
 			newLiquidParticle.GetComponent<Rigidbody2D>().AddForce( particleForce); //Add our custom force
 
 			DynamicParticle particleScript=newLiquidParticle.GetComponent<DynamicParticle>(); // Get the particle script
