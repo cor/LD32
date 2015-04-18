@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour {
 	public float jumpForce = 100f;
 	public float delayBetweenShots = 3f;
 	public float shootForce = 500f;
+	public float timeUntilJetPizzaDespawn = 0.5f;
 
 	private float timeSinceLastShot;
 
@@ -62,8 +63,12 @@ public class PlayerController : MonoBehaviour {
 			rb.AddForce(new Vector2(0, jumpForce));
 		}
 
-		if ((Input.GetAxis("Fire1") == 1) && (Time.time > timeSinceLastShot + delayBetweenShots)){
+		if ((Input.GetAxis("Shoot") == 1) && (Time.time > timeSinceLastShot + delayBetweenShots)){
 			Shoot();
+		}
+
+		if (Input.GetAxis("Fly") == 1) {
+			Fly();
 		}
 	}
 
@@ -90,4 +95,12 @@ public class PlayerController : MonoBehaviour {
 		timeSinceLastShot = Time.time;
 	}
 
+	void Fly() {
+		Vector3 clonePosition = new Vector3(transform.position.x, transform.position.y -1.5f, transform.position.z);
+		GameObject clone;
+		clone = Instantiate(bullet, clonePosition, bullet.transform.rotation) as GameObject;
+		clone.GetComponent<Rigidbody2D>().AddForce(Vector2.up * - shootForce);
+		Destroy(clone, timeUntilJetPizzaDespawn);
+	
+	}
 }
