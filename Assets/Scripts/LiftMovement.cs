@@ -15,8 +15,8 @@ public class LiftMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		if (isMovingUp && transform.position.y < startingYpos + liftShaftHeight + Time.Time.deltaTime * 2) {
+
+		if (isMovingUp && transform.position.y < startingYpos + liftShaftHeight + Time.deltaTime * 2) {
 
 			transform.position = new Vector2(transform.position.x, transform.position.y + Time.deltaTime * 2);
 		}

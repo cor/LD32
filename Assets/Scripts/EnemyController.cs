@@ -29,6 +29,7 @@ public class EnemyController : MonoBehaviour {
 	public float shootForce = 500f;
 	public float timeUntilJetPizzaDespawn = 0.5f;
 	public float maxSpeed = 10f;
+	public float dieAirSpeed = 10f; 
 
 	private float timeSinceLastShot;
 
@@ -37,6 +38,7 @@ public class EnemyController : MonoBehaviour {
 	public int pizzaLayer = 10;
 
 	public bool alive = true;
+
 
 	// Use this for initialization
 	void Start () {
@@ -92,6 +94,10 @@ public class EnemyController : MonoBehaviour {
 		anim.SetBool("Ground", true);
 		anim.SetFloat("VerticalSpeed", 0);
 		anim.SetFloat("HorizontalSpeed", 0);
+
+		Vector2 flyToAirVector = Vector2.up * dieAirSpeed; 
+
+		rb.AddForce(flyToAirVector, ForceMode2D.Impulse);
 	}
 
 
