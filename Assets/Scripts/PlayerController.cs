@@ -25,11 +25,15 @@ public class PlayerController : MonoBehaviour {
 
 	private float timeSinceLastShot;
 
+
+	private GameObject previousPizza;
+
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody2D>();
 		timeSinceLastShot = Time.time;
+		previousPizza = new GameObject();
 	}
 	
 	// Update is called once per frame
@@ -85,15 +89,19 @@ public class PlayerController : MonoBehaviour {
 		if (playerCanShoot){
 
 			if (facingRight) {
+				Destroy(previousPizza);
 				Vector3 clonePosition = new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z);
 				GameObject clone;
 				clone = Instantiate(bullet, clonePosition, bullet.transform.rotation) as GameObject;
 				clone.GetComponent<Rigidbody2D>().AddForce(Vector2.right * shootForce);
+				previousPizza = clone;
 			} else {
+				Destroy(previousPizza);
 				Vector3 clonePosition = new Vector3(transform.position.x - 0.5f, transform.position.y, transform.position.z);
 				GameObject clone;
 				clone = Instantiate(bullet, clonePosition, bullet.transform.rotation) as GameObject;
 				clone.GetComponent<Rigidbody2D>().AddForce(Vector2.right * - shootForce);
+				previousPizza = clone;
 			}
 
 			timeSinceLastShot = Time.time;
