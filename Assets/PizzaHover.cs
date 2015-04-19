@@ -19,7 +19,6 @@ public class PizzaHover : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.gameObject.layer == 8) {
 			playerController.playerCanShoot = true;
-			Debug.Log(playerController.playerCanShoot);
 			Destroy(gameObject);
 		}
 	}
