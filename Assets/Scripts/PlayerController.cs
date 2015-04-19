@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 
 	bool facingRight = true;
 	bool onGround = false;
+	public bool playerCanShoot = false;
 
 	public GameObject bullet;
 	public Transform groundCheck;
@@ -80,19 +81,24 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Shoot() {
-		if (facingRight) {
-			Vector3 clonePosition = new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z);
-			GameObject clone;
-			clone = Instantiate(bullet, clonePosition, bullet.transform.rotation) as GameObject;
-			clone.GetComponent<Rigidbody2D>().AddForce(Vector2.right * shootForce);
-		} else {
-			Vector3 clonePosition = new Vector3(transform.position.x - 0.5f, transform.position.y, transform.position.z);
-			GameObject clone;
-			clone = Instantiate(bullet, clonePosition, bullet.transform.rotation) as GameObject;
-			clone.GetComponent<Rigidbody2D>().AddForce(Vector2.right * - shootForce);
-		}
 
-		timeSinceLastShot = Time.time;
+		if (playerCanShoot){
+
+			if (facingRight) {
+				Vector3 clonePosition = new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z);
+				GameObject clone;
+				clone = Instantiate(bullet, clonePosition, bullet.transform.rotation) as GameObject;
+				clone.GetComponent<Rigidbody2D>().AddForce(Vector2.right * shootForce);
+			} else {
+				Vector3 clonePosition = new Vector3(transform.position.x - 0.5f, transform.position.y, transform.position.z);
+				GameObject clone;
+				clone = Instantiate(bullet, clonePosition, bullet.transform.rotation) as GameObject;
+				clone.GetComponent<Rigidbody2D>().AddForce(Vector2.right * - shootForce);
+			}
+
+			timeSinceLastShot = Time.time;
+
+		}
 	}
 
 	void Fly() {
