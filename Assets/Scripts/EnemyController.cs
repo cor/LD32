@@ -9,13 +9,19 @@ public class EnemyController : MonoBehaviour {
 
 	bool facingRight = true;
 	bool onGround = false;
+	bool wallInFrontOfEnemy = false;
 
 	public GameObject bullet;
+
 	public Transform groundCheck;
+	public Transform wallCheck;
 
 	float groundRadius = 0.2f;
+	float wallRadius = 0.5f;
+
 	public LayerMask whatIsGround;
 
+	// speed constants
 	public float jumpForce = 100f;
 	public float delayBetweenShots = 3f;
 	public float shootForce = 500f;
@@ -37,6 +43,10 @@ public class EnemyController : MonoBehaviour {
 
 		// check if we're on the ground
 		onGround = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+		wallInFrontOfEnemy = Physics2D.OverlapCircle(wallCheck.position, wallRadius, whatIsGround);
+
+		Debug.Log(wallInFrontOfEnemy);
+		if (wallInFrontOfEnemy) turnAround();
 
 		// set animator values
 		anim.SetBool("Ground", onGround);
@@ -63,5 +73,10 @@ public class EnemyController : MonoBehaviour {
 		Vector3 scale = transform.localScale;
 		scale.x *= -1; // flip the transform
 		transform.localScale = scale;
+	}
+
+	void turnAround() {
+		moveAxisValue *= -1;
+		Debug.Log("turn");
 	}
 }
