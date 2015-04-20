@@ -3,10 +3,98 @@
 	{
 		"selected_items":
 		[
+			[
+				"spawnE",
+				"SpawnEnemyNow"
+			],
+			[
+				"delay",
+				"delayBetweenSpawns"
+			],
+			[
+				"ForceMode2",
+				"ForceMode2D.Impulse	[property]"
+			],
+			[
+				"up",
+				"up	Vector2.*"
+			],
+			[
+				"deltaTime",
+				"deltaTime	Time.*"
+			],
+			[
+				"oncollisionenter",
+				"onCollisionEnter2D	Collider2D.*(?)"
+			],
+			[
+				"Clone",
+				"clone"
+			],
+			[
+				"OnTrigger",
+				"OnTriggerEnter2D	Collider2D.*(?)"
+			],
+			[
+				"ontrig",
+				"onTriggerEnter	Collider.*(?)"
+			],
+			[
+				"Vector",
+				"Vector2	*()"
+			],
+			[
+				"posi",
+				"position	Transform.*"
+			],
+			[
+				"startPos",
+				"startPosition"
+			],
+			[
+				"y",
+				"y	Vector2.*"
+			],
+			[
+				"wall",
+				"wallInFrontOfEnemy"
+			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "Assets/Scripts/PlayerController.cs",
+			"settings":
+			{
+				"buffer_size": 3177,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Scripts/SmoothFollow.cs",
+			"settings":
+			{
+				"buffer_size": 800,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Scripts/EnemyController.cs",
+			"settings":
+			{
+				"buffer_size": 2432,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Scripts/spawnEnemy.cs",
+			"settings":
+			{
+				"buffer_size": 625,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -24,15 +112,27 @@
 				":w - Save"
 			],
 			[
-				"status",
+				"stat",
 				"View: Toggle Status Bar"
 			],
 			[
 				"install",
 				"Package Control: Install Package"
+			],
+			[
+				"statu",
+				"View: Toggle Status Bar"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"status",
+				"View: Toggle Status Bar"
 			]
 		],
-		"width": 417.0
+		"width": 889.0
 	},
 	"console":
 	{
@@ -52,16 +152,21 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/cor/Development/Unity/LD32"
+		"/Users/cor/Development/Unity/LD32/Assets/Scripts"
 	],
 	"file_history":
 	[
+		"/Users/cor/Development/Unity/LD32/Assets/spawnEnemy.cs",
+		"/Users/cor/Development/Unity/LD32/Assets/Scripts/LiftMovement.cs",
+		"/Users/cor/Development/Unity/LD32/Assets/PizzaHover.cs",
+		"/Users/cor/Development/Unity/LD32/Assets/LiftMovement.cs",
+		"/Users/cor/Development/Unity/LD32/LD32.sublime-project",
 		"/Users/cor/Development/Unity/LD32/Assets/Scripts/PlayerController.cs",
 		"/Users/cor/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 24.0
 	},
 	"find_in_files":
 	{
@@ -75,6 +180,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"debug.log"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -92,14 +198,136 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Assets/Scripts/PlayerController.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3177,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2150,
+								2150
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 748.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Assets/Scripts/SmoothFollow.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 800,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "Assets/Scripts/EnemyController.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2432,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								982,
+								982
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 663.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Assets/Scripts/spawnEnemy.cs",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 625,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								446,
+								446
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 24.0
 	},
 	"input":
 	{
@@ -114,11 +342,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -136,7 +371,7 @@
 	"project": "LD32.sublime-project",
 	"replace":
 	{
-		"height": 0.0
+		"height": 44.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -175,7 +410,7 @@
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 237.0,
-	"status_bar_visible": false,
+	"status_bar_visible": true,
 	"template_settings":
 	{
 	}
